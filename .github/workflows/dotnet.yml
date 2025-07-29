@@ -30,3 +30,11 @@ jobs:
         run: |
           cd out
           ls -l
+  
+      - name: Push no NuGet
+        run: |
+          cd out
+          dotnet nuget push *.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source ${{ env.NUGET_SERVER }} --skip-duplicate
+
+
+          
