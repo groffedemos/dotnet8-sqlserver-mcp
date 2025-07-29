@@ -1,0 +1,40 @@
+name: azure-mcp-experiments
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+env:
+  IMAGE_DOCKERHUB: ${{ secrets.DOCKERHUB_USERNAME }}/sqlserver-mcp-2025-07-v0
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build da imagem
+        run: |
+          cd ./src/MssqlMcp
+          docker build . --file Dockerfile --tag ${{ env.IMAGE_DOCKERHUB }}:latest
+
+      - name: Gerar tag de imagem usando o numero de execucao do workflow
+        run: docker tag ${{ env.IMAGE_DOCKERHUB }}:latest ${{ env.IMAGE_DOCKERHUB }}:$GITHUB_RUN_NUMBER
+
+      - name: Exibir imagens no ambiente
+        run: docker images
+
+      - name: Login no Docker Hub
+        uses: docker/login-action@v3.4.0
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          
+      - name: Geração de tag com número do Build e Push no Docker Hub
+        run: |
+          docker tag ${{ env.IMAGE_DOCKERHUB }}:latest ${{ env.IMAGE_DOCKERHUB }}:$GITHUB_RUN_NUMBER
+          docker push --all-tags ${{ env.IMAGE_DOCKERHUB }}
