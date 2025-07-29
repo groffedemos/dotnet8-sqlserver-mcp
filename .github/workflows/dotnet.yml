@@ -28,5 +28,5 @@ jobs:
       
       - name: Exibir arquivos gerados apos build
         run: |
-          cd ./src/MssqlMcp/out
+          cd out
           ls -l
