@@ -1,4 +1,4 @@
-name: azure-mcp-experiments
+name: sqlserver-mcp-nuget
 
 on:
   push:
