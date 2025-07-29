@@ -13,4 +13,4 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/runtime:8.0.18
 WORKDIR /app
 COPY --from=build-env /app/out .
-ENTRYPOINT ["MssqlMcp"]
+ENTRYPOINT ["dotnet", "MssqlMcp.dll"]
