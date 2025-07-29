@@ -17,18 +17,6 @@
       <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
       <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>    
   </PropertyGroup>
-
-
-  <PropertyGroup>
-    <PackAsTool>true</PackAsTool>
-    <ToolCommandName>mcpsqlserver</ToolCommandName>
-    <Authors>Renato Groffe</Authors>
-    <Company>Groffe</Company>
-    <PackageTags>NuGet;.NET;Tool;Sample</PackageTags>
-    <Description>
-      This is a sample that shows how to use the .NET to create a simple tool.
-    </Description>
-  </PropertyGroup>
   
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
@@ -41,5 +29,17 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="9.0.4" />
     <PackageReference Include="ModelContextProtocol" Version="0.1.0-preview.10" />
   </ItemGroup>
+
+
+  <PropertyGroup>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>mcpsqlserver</ToolCommandName>
+    <Authors>Renato Groffe</Authors>
+    <Company>Groffe</Company>
+    <PackageTags>NuGet;.NET;Tool;Sample</PackageTags>
+    <Description>
+      This is a sample that shows how to use the .NET to create a simple tool.
+    </Description>
+  </PropertyGroup>
 
 </Project>
