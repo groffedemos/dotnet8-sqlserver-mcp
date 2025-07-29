@@ -33,7 +33,7 @@
 
   <PropertyGroup>
     <PackAsTool>true</PackAsTool>
-    <ToolCommandName>mcpsqlserver</ToolCommandName>
+    <ToolCommandName>testemcpsqlserverv0</ToolCommandName>
     <Authors>Renato Groffe</Authors>
     <Company>Groffe</Company>
     <PackageTags>NuGet;.NET;Tool;Sample</PackageTags>
